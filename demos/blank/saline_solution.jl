@@ -62,7 +62,7 @@ md"🦫 we write the model differently for numerical solving it:
 
 ```math
 \begin{equation}
-\frac{dc}{dt}=f(c, \mathbf{p}, t) = \frac{w-cq}{V}
+\frac{dc}{dt}=f(c, \mathbf{p}, t) = \frac{w-c q(t)}{V}
 \end{equation}
 ```
 where $\mathbf{p}$ is an optional vector of parameters we do not use here.
@@ -85,7 +85,11 @@ where $\mathbf{p}$ is an optional vector of parameters we do not use here.
 # solve ODE, return data frame
 
 # ╔═╡ 43389dd2-9237-4812-bfe5-a6570f552073
-md"🦫 viz the solution."
+md"🦫 viz the solution.
+
+!!! note
+	we use `CairoMakie.jl` to draw data visualizations in this, whose documentation is [here](https://docs.makie.org/stable/).
+"
 
 # ╔═╡ 5c1d708e-1442-4a53-941c-5b2013dc34c7
 
