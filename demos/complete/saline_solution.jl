@@ -7,11 +7,38 @@ using InteractiveUtils
 # ╔═╡ a855718e-9078-11ed-2fd1-73a706483e34
 begin
 	import Pkg; Pkg.activate()
-	using DifferentialEquations, CairoMakie, DataFrames
+	using DifferentialEquations, CairoMakie, DataFrames, Roots
 end
 
 # ╔═╡ 0dcc0877-1bfb-4c54-a587-eb1576c15519
 set_theme!(theme_ggplot2()); update_theme!(fontsize=18, resolution=(600, 500), linewidth=4)
+
+# ╔═╡ 578ffc3e-7564-4a98-9c84-b00daf782093
+md"### numerically solving a nonlinear equation
+
+suppose we wish to find a root of the nonlinear function $g(x)=e^{-x} - x$.
+
+!!! note
+	see `fzero` in `Roots.jl` [here](https://github.com/JuliaMath/Roots.jl).
+"
+
+# ╔═╡ f57281ab-2fe2-4196-a110-1c68b618513f
+g(x) = exp(-x) - x
+
+# ╔═╡ c1e17af0-e63d-41a0-bf65-7ad45927e51f
+xᵣ = fzero(g, 0.5) # guess is 0.5
+
+# ╔═╡ 6029b24d-8d58-4a24-816f-6a6f0a87bfda
+begin
+	fig3 = Figure()
+	ax3 = Axis(fig3[1, 1], xlabel="x")
+	xs = range(0.0, 3.0, length=100)
+	lines!(xs, xs, label="y=x")
+	lines!(xs, exp.(-xs), label="y=exp(-x)")
+	vlines!(xᵣ, linestyle=:dash, color="black")
+	axislegend(position=:rc)
+	fig3
+end
 
 # ╔═╡ a30a8abb-a625-4453-bf9e-71e3e041ba37
 md"## the saline solution production facility
@@ -118,6 +145,10 @@ end
 # ╔═╡ Cell order:
 # ╠═a855718e-9078-11ed-2fd1-73a706483e34
 # ╠═0dcc0877-1bfb-4c54-a587-eb1576c15519
+# ╟─578ffc3e-7564-4a98-9c84-b00daf782093
+# ╠═f57281ab-2fe2-4196-a110-1c68b618513f
+# ╠═c1e17af0-e63d-41a0-bf65-7ad45927e51f
+# ╠═6029b24d-8d58-4a24-816f-6a6f0a87bfda
 # ╟─a30a8abb-a625-4453-bf9e-71e3e041ba37
 # ╟─72235733-f784-4d4e-8cdc-9392f9739cae
 # ╟─9f0e6912-5d79-45e5-81d0-f12a4a855fcd
