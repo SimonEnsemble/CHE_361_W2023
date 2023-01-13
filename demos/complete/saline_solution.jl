@@ -6,7 +6,7 @@ using InteractiveUtils
 
 # ╔═╡ a855718e-9078-11ed-2fd1-73a706483e34
 begin
-	import Pkg; Pkg.activate()
+	# import Pkg; Pkg.activate() # comment back in if you wish to use your local pkgs
 	using DifferentialEquations, CairoMakie, DataFrames, Roots
 end
 
