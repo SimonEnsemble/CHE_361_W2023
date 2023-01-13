@@ -19,7 +19,7 @@ md"
 # numerically solving ODEs and simulating the saline solution facility
 
 **learning objectives:**
-* use `DifferentialEquations.jl` (documentation [here](https://docs.juliadiffeq.org/stable/index.html)) to numerically solve (well, approximate the solution to) nonlinear differential equations.
+* use `DifferentialEquations.jl` (documentation [here](https://docs.sciml.ai/DiffEqDocs/stable/tutorials/ode_example/)) to numerically solve (well, approximate the solution to) nonlinear differential equations.
 * explore concepts in process dynamics (how an input affects an output), in the context of our simple saline production facility.
 "
 
@@ -86,6 +86,8 @@ md"
 # ╔═╡ dafd3af8-42d8-4ee3-bb90-94b1aa6f97f9
 
 # ╔═╡ 206ab73a-80cf-46e2-922e-708906a85d2b
+# at steady-state, dc/dt = f(c, w) = 0                                                
+# solve f(c∞, w) = 0 for w to get the w that gives us the desired c∞                  
 
 # ╔═╡ 72bfb292-2b6b-46fc-98a9-81017fb9bd1d
 md"
@@ -140,7 +142,7 @@ md"🐝 before you simulate, sketch out what you anticipate the output salt conc
 * plot a black, horizontal, dashed line at $\bar{c}=0.1$ g/L.
 
 !!! hint
-	see `DifferentialEquations.jl` docs [here](https://diffeq.sciml.ai/dev/tutorials/ode_example/).
+	see `DifferentialEquations.jl` docs [here](https://docs.sciml.ai/DiffEqDocs/stable/tutorials/ode_example/).
 
 !!! hint
 	with the view $dc/dt=f(c, t)$, use the time argument, `t`, in your Julia function `f(c, p, t)`, by passing it to your `w(t)` to retreive the value of $w$ at that time.
@@ -150,6 +152,10 @@ md"🐝 before you simulate, sketch out what you anticipate the output salt conc
 "
 
 # ╔═╡ 434aaccc-d0b7-43fb-923f-89e92eba6153
+
+# ╔═╡ a6cfd7c8-5557-4260-a8d3-c3342ff26e61
+
+# ╔═╡ 2f0f38ab-dab4-421d-89f8-18f9afa6d03c
 
 # ╔═╡ fbf03ff1-27d6-4fdb-a523-6757ba3a5a7c
 
@@ -195,6 +201,8 @@ to highlight, on the same plot, the time interval over which the saline solution
 # ╠═dbe43e13-7137-41d3-b56f-090b478d625a
 # ╟─a78430b5-b763-4523-9895-3be19b809ea5
 # ╠═434aaccc-d0b7-43fb-923f-89e92eba6153
+# ╠═a6cfd7c8-5557-4260-a8d3-c3342ff26e61
+# ╠═2f0f38ab-dab4-421d-89f8-18f9afa6d03c
 # ╠═fbf03ff1-27d6-4fdb-a523-6757ba3a5a7c
 # ╟─b67f3967-1cda-44d0-8243-ce603f5f913a
 # ╠═9f5a3ee7-5505-4d34-bfa5-f1f0844f853d
