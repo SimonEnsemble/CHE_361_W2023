@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.19
+# v0.19.20
 
 using Markdown
 using InteractiveUtils
@@ -25,7 +25,7 @@ how to find out how to do something in Julia?
 "
 
 # ╔═╡ 6cbbbf58-475f-473a-9915-6eb3eb153e3c
-set_theme!(theme_dark()); update_theme!(fontsize=20)
+update_theme!(fontsize=26, linewidth=3)
 
 # ╔═╡ a9b9a51b-f129-4d45-8b5c-f427296a3660
 md"
@@ -136,6 +136,33 @@ begin
 	fig2
 end
 
+# ╔═╡ b1baa9c2-1601-45c6-83a8-2075e7fec867
+md"## read in `.csv` file as a `DataFrame`
+
+`.csv` file = \"comma-separated value\" file
+
+[here](https://raw.githubusercontent.com/SimonEnsemble/intro_to_data_science_fall_2022/main/data/Xe_in_SBMOF-1.csv) is an example. let's download it.
+"
+
+# ╔═╡ 491096b7-189c-4451-b04b-6fafce7892b7
+download("https://raw.githubusercontent.com/SimonEnsemble/intro_to_data_science_fall_2022/main/data/Xe_in_SBMOF-1.csv", "Xe_in_SBMOF-1.csv")
+
+# ╔═╡ 236f635c-0183-4ac5-b0ee-c400d8af0d54
+println(String(read("Xe_in_SBMOF-1.csv")))
+
+# ╔═╡ b0b32638-0261-4f1e-9b1a-36df2447fcbd
+md"the file is stored here, in your present working directory."
+
+# ╔═╡ 77150da6-6f3e-4ab7-9256-4b8b80fb3412
+pwd()
+
+# ╔═╡ cd9a4445-1c59-4f7a-b980-627cfe41d500
+md"let's read in the file as a `DataFrame`."
+
+# ╔═╡ 109c6c29-a503-49e1-851e-5e04235133c9
+# the comment option says "skip lines that start with #"
+data = CSV.File("Xe_in_SBMOF-1.csv", comment="#") |> DataFrame
+
 # ╔═╡ Cell order:
 # ╟─edbcad9f-bbc8-44c9-9165-ce61ee6671c3
 # ╠═64d5b078-6eb1-11ec-290d-99aa7b5ace54
@@ -153,3 +180,10 @@ end
 # ╠═4cddd124-0eae-45c7-96f3-23e3e53a0613
 # ╟─9852fdaa-7c86-4e88-96af-6ec273222dd4
 # ╠═b89f1624-d2b5-4262-bcd5-514446dd66f6
+# ╟─b1baa9c2-1601-45c6-83a8-2075e7fec867
+# ╠═491096b7-189c-4451-b04b-6fafce7892b7
+# ╠═236f635c-0183-4ac5-b0ee-c400d8af0d54
+# ╟─b0b32638-0261-4f1e-9b1a-36df2447fcbd
+# ╠═77150da6-6f3e-4ab7-9256-4b8b80fb3412
+# ╟─cd9a4445-1c59-4f7a-b980-627cfe41d500
+# ╠═109c6c29-a503-49e1-851e-5e04235133c9
