@@ -184,7 +184,7 @@ new_G_eqn = substitute(G_eqn, A => A_of_G_and_R)
 md"solve for `G`."
 
 # ╔═╡ aed884f7-2554-4393-9723-f7c30e361ef8
-tf = Symbolics.solve_for(new_G_eqn, G, simplify=true)
+Symbolics.solve_for(new_G_eqn, G, simplify=true)
 
 # ╔═╡ Cell order:
 # ╠═288ed518-bde8-11ed-0204-0b761fe29816
