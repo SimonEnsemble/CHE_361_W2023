@@ -9,6 +9,7 @@ begin
 	import Pkg;Pkg.activate()
 	using NLsolve
 	using Calculus: gradient
+	using Symbolics
 end
 
 # ╔═╡ 3190b2f4-3b1a-4f02-9284-6948f29a7b67
@@ -107,6 +108,54 @@ md"🐶 compute the gradient of the function."
 
 # ╔═╡ f92847e4-09f3-4e9d-9722-6c245c67cf1f
 
+# ╔═╡ 882f8867-1bdc-407a-b2f9-1337f793b757
+md"## solving symbolic equations with `Symbolics.jl`
+
+(to save you some algebra)
+
+!!! example
+	in our handout \"intro to second-order systems\", we took the Laplace transform of two coupled, linear ODEs comprising a model for pesticide application to apple trees and its influence on the soil. the equations were:
+	
+	```math
+	\begin{align}
+		sA(s) &= - 3 A(s) + G(s) + R(s) \\
+		s G(S) &= 2 A(s) - 2 G(s)
+	\end{align}
+	```
+	we wish to solve for $G(s)$ in terms of $R(s)$, eliminating $A(s)$, giving the transfer function for how $R(s)$ affects $G(s)$.
+
+!!! hint
+	see [the docs](https://symbolics.juliasymbolics.org/stable/getting_started/) for `Symbolics.jl`.
+"
+
+# ╔═╡ efe4024f-4b38-49a2-9c4b-531b536aaeb5
+md"define variables."
+
+# ╔═╡ 78b91616-6794-4707-8a89-eeca1b327aba
+# define symbols
+
+# ╔═╡ b67604b4-b559-4a46-9f30-02b7561de80d
+md"define the two algebraic equations as (...) = 0."
+
+# ╔═╡ 85f93d29-3702-44c2-86d5-a404c9108ade
+
+# ╔═╡ 521aa029-e348-4cf5-87c9-f0eb2481094f
+
+# ╔═╡ 9b267e35-4a14-4048-b0a3-473980edbe9c
+md"solve `A_eqn` for `A` in terms of `G` and `R`."
+
+# ╔═╡ 4551f197-2765-4e31-95f8-f64f0aea4c9d
+
+# ╔═╡ d662b59f-b8e1-4ec7-893b-03e08eff1bd2
+md"substitute this expression for `A` into `G_eqn`."
+
+# ╔═╡ 3a3416ec-eb6c-4707-8db4-8d7cef4961e1
+
+# ╔═╡ 0ad4d4cb-9597-45a9-914c-3900a36f02fd
+md"solve for `G`."
+
+# ╔═╡ aed884f7-2554-4393-9723-f7c30e361ef8
+
 # ╔═╡ Cell order:
 # ╠═288ed518-bde8-11ed-0204-0b761fe29816
 # ╟─3190b2f4-3b1a-4f02-9284-6948f29a7b67
@@ -127,3 +176,15 @@ md"🐶 compute the gradient of the function."
 # ╟─8a4cfe40-909c-4d19-a120-53671874d8e6
 # ╠═f517ddbc-8a30-4e78-831d-da969c4f9819
 # ╠═f92847e4-09f3-4e9d-9722-6c245c67cf1f
+# ╟─882f8867-1bdc-407a-b2f9-1337f793b757
+# ╟─efe4024f-4b38-49a2-9c4b-531b536aaeb5
+# ╠═78b91616-6794-4707-8a89-eeca1b327aba
+# ╟─b67604b4-b559-4a46-9f30-02b7561de80d
+# ╠═85f93d29-3702-44c2-86d5-a404c9108ade
+# ╠═521aa029-e348-4cf5-87c9-f0eb2481094f
+# ╟─9b267e35-4a14-4048-b0a3-473980edbe9c
+# ╠═4551f197-2765-4e31-95f8-f64f0aea4c9d
+# ╟─d662b59f-b8e1-4ec7-893b-03e08eff1bd2
+# ╠═3a3416ec-eb6c-4707-8db4-8d7cef4961e1
+# ╟─0ad4d4cb-9597-45a9-914c-3900a36f02fd
+# ╠═aed884f7-2554-4393-9723-f7c30e361ef8
